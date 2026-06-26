@@ -69,6 +69,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebb0997eb580c0d49ab53ba7d039c04c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::App.UI.Screens.Behaviour.SelectMissionScreen
+  _missionCard: {fileID: 9197481963319205126, guid: 7b18253454a8e534b9129a99879a5dbd, type: 3}
 --- !u!114 &7847197620595336555
 MonoBehaviour:
   m_ObjectHideFlags: 0
