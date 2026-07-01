@@ -1,14 +1,16 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:VisualElement name="container" style="flex-grow: 1; background-color: rgb(137, 34, 34);">
         <ui:VisualElement name="top" style="padding-top: 16px; padding-right: 16px; padding-bottom: 16px; padding-left: 16px; flex-direction: row; width: 90%; align-self: center;">
-            <ui:VisualElement style="flex-grow: 1; align-items: center; justify-content: center;">
+            <ui:VisualElement style="flex-grow: 1; align-items: center; justify-content: center; flex-direction: row;">
+                <ui:Button text="Minus" name="buttonMinus" style="margin-right: 8px;"/>
                 <ui:Label text="AREA 1" name="levelName" style="font-size: 55px; -unity-font-definition: url(&quot;project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&amp;guid=f27f3f30c19343741b9bcc6e66e4d36c&amp;type=3#NotInter-Regular&quot;); color: rgb(255, 255, 255);"/>
+                <ui:Button text="Plus" name="buttonPlus" style="margin-left: 8px;"/>
             </ui:VisualElement>
-            <ui:Button text="Button" name="CloseButton" style="width: 100px; height: 100px;"/>
+            <ui:Button text="Button" name="closeButton" style="width: 100px; height: 100px;"/>
         </ui:VisualElement>
         <ui:VisualElement name="middle" style="width: 95%; align-self: center;">
             <ui:VisualElement style="flex-grow: 1;">
-                <ui:ScrollView vertical-scroller-visibility="Hidden" name="ScrollView" horizontal-scroller-visibility="Auto" style="width: 95%; align-self: center; flex-shrink: 0;">
+                <ui:ScrollView vertical-scroller-visibility="Hidden" name="ScrollViewMiddle" horizontal-scroller-visibility="Auto" style="width: 95%; align-self: center; flex-shrink: 0;">
                     <ui:VisualElement name="scrollContent" style="flex-grow: 1; flex-direction: row; flex-shrink: 0; padding-bottom: 16px; padding-top: 16px; align-self: flex-start;"/>
                 </ui:ScrollView>
             </ui:VisualElement>
