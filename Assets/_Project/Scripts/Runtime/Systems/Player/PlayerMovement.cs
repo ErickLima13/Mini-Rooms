@@ -34,7 +34,11 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         // 1. New Input System captura a intenção de movimento
-        inputActions.Player.Move.performed += ctx => moveInput = ctx.ReadValue<Vector2>();
+        inputActions.Player.Move.performed += ctx =>
+        {
+            var input = ctx.ReadValue<Vector2>();
+            moveInput = new Vector2(input.x, 0f);
+        };
         inputActions.Player.Move.canceled += ctx => moveInput = Vector2.zero;
 
         // 2. Captura o clique do Pulo e ativa a intenção (Sinal limpo)
@@ -89,17 +93,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void Animations()
     {
-
-        if (Mathf.Abs(moveInput.x) > 0.1f)
-        {
-            animator.Play("walkP");
-        }
-
         animator.SetFloat("yVelocity", speedY);
-        animator.SetInteger("xVelocity", (int)Mathf.Abs(moveInput.x));
+        animator.SetFloat("xVelocity", Mathf.Abs(moveInput.x));
         animator.SetBool("isGrounded", estaNoChao);
         animator.SetBool("jump", !estaNoChao);
-
     }
 
     private void Flip()
