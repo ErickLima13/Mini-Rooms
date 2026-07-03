@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2449165278889724338}
   - component: {fileID: 3751237800946527830}
+  - component: {fileID: 9145227491732935848}
   m_Layer: 0
   m_Name: ProjectContext
   m_TagString: Untagged
@@ -45,7 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scriptableObjectInstallers: []
-  _monoInstallers: []
+  _monoInstallers:
+  - {fileID: 9145227491732935848}
   _installerPrefabs:
   - {fileID: 3674583158915700224, guid: 2864be370a208b247b782e9970aefb2e, type: 3}
   _parentNewObjectsUnderContext: 1
@@ -61,3 +63,15 @@ MonoBehaviour:
       _missingHandlerDefaultResponse: 2
       _requireStrictUnsubscribe: 0
       _defaultAsyncTickPriority: 1
+--- !u!114 &9145227491732935848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7593680915513534383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b2cc31ab3a021244aac7ff9e7ac83de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameContext

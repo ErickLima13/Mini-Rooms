@@ -9,11 +9,25 @@
       },
       "hash": "3fed50ae5c7e123073f6e50218b2a0e6310d50b4"
     },
+    "com.cysharp.unitask": {
+      "version": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "e5acc106ee196bc5a32fb14cdf2987b0f96d11e0"
+    },
     "com.maneuver.screenmanager": {
       "version": "file:C:/Documentos/Repos/ScreenManager",
       "depth": 0,
       "source": "local",
       "dependencies": {}
+    },
+    "com.maneuver.soundsystem": {
+      "version": "https://github.com/Maneuver-Studio/SoundSystem.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "aba35a13371090d3ced211bae26d4a8aae63eca8"
     },
     "com.unity.2d.animation": {
       "version": "13.0.2",
@@ -122,13 +136,6 @@
         "com.unity.mathematics": "1.2.1",
         "com.unity.modules.jsonserialize": "1.0.0"
       },
-      "url": "https://packages.unity.com"
-    },
-    "com.unity.collab-proxy": {
-      "version": "2.11.2",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {},
       "url": "https://packages.unity.com"
     },
     "com.unity.collections": {
