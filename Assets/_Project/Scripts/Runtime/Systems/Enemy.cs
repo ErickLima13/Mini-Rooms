@@ -1,15 +1,12 @@
 using UnityEngine;
+using UnityEngine.InputSystem.XR;
 
-public class Enemy : MonoBehaviour
+public class Enemy : Interactable
 {
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected override void OnInteract(PlayerMovement player)
     {
+       
 
-        if (collision.TryGetComponent<SpeelController>(out SpeelController controller))
-        {
-            controller.AddPoint(1);
-
-            Destroy(gameObject, 0.5f);
-        }
+        Destroy(gameObject, 0.5f);
     }
 }
