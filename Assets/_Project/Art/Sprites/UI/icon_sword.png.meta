@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 807d29ef454543f43b4e44ad31fa97a6
+guid: 8662053f4ab4f0d4d9770ed0e780f9fa
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3819453564753383917
-    second: icon_jump_0
-  - first:
-      213: 3641536589154404167
-    second: icon_jump_1
+      213: -2124102372771563869
+    second: icon_sword_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -129,35 +126,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: icon_jump_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 21
-        width: 48
-        height: 27
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: de19933e7cc610530800000000000000
-      internalID: 3819453564753383917
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: icon_jump_1
+      name: icon_sword_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 48
-        height: 27
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -166,8 +141,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 747c221fb36598230800000000000000
-      internalID: 3641536589154404167
+      spriteID: 3a6f26c552ca582e0800000000000000
+      internalID: -2124102372771563869
       vertices: []
       indices: 
       edges: []
@@ -186,8 +161,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      icon_jump_0: 3819453564753383917
-      icon_jump_1: 3641536589154404167
+      icon_sword_0: -2124102372771563869
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

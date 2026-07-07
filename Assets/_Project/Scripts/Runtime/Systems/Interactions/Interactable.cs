@@ -8,6 +8,11 @@ public abstract class Interactable : MonoBehaviour
     // Útil caso o dano ou coletável precise acessar dados do player específico
     protected Action<PlayerMovement> OnPlayerInteract;
 
+    private void Awake()
+    {
+        GetComponent<Collider2D>().isTrigger = true;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Tenta pegar o componente do Player de forma otimizada

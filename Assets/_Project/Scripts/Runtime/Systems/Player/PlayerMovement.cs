@@ -1,5 +1,12 @@
+using Cysharp.Threading.Tasks;
 using R3;                     // R3
+using System.Collections;
+using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -23,6 +30,14 @@ public class PlayerMovement : MonoBehaviour
 
     public int Point { get; set; }
 
+    public GameObject _hudButtons;
+
+    public float _hideSeconds;
+
+    public float _maxInactivity;
+
+    public bool _isHide;
+
     void Awake()
     {
         inputActions = new InputSystem_Actions();
@@ -31,8 +46,19 @@ public class PlayerMovement : MonoBehaviour
     void OnEnable() => inputActions.Enable();
     void OnDisable() => inputActions.Disable();
 
+
+    public void CheckHud(InputEventPtr eventPtr, InputDevice device)
+    {
+        _hideSeconds = 0;
+        _isHide = false;
+        _hudButtons.SetActive(true);
+    }
+
     void Start()
     {
+
+        InputSystem.onEvent += CheckHud;  
+
         // 1. New Input System captura a intenção de movimento
         inputActions.Player.Move.performed += ctx =>
         {
@@ -40,6 +66,15 @@ public class PlayerMovement : MonoBehaviour
             moveInput = new Vector2(input.x, 0f);
         };
         inputActions.Player.Move.canceled += ctx => moveInput = Vector2.zero;
+
+
+        inputActions.Player.Attack.performed += ctx =>
+        {
+            if (estaNoChao && Mathf.Abs(moveInput.x) < 0.01f)
+            {
+                animator.Play("attackP");
+            }          
+        };
 
         // 2. Captura o clique do Pulo e ativa a intenção (Sinal limpo)
         inputActions.Player.Jump.performed += ctx =>
@@ -80,7 +115,6 @@ public class PlayerMovement : MonoBehaviour
 
                 }
 
-
                 // Aplica a física final ao Rigidbody de forma segura
                 rb.linearVelocity = new Vector2(velocidadeX, velocidadeY);
 
@@ -91,11 +125,23 @@ public class PlayerMovement : MonoBehaviour
             .RegisterTo(this.destroyCancellationToken); // Cancela ao destruir o objeto
     }
 
+    private void Update()
+    {
+        if (_isHide) return;
+
+        _hideSeconds += Time.deltaTime;
+
+        if(_hideSeconds > _maxInactivity)
+        {
+            _hudButtons.SetActive(false);
+            _isHide = true;
+        }
+    }
+
     private void Animations()
     {
         animator.SetFloat("yVelocity", speedY);
         animator.SetFloat("xVelocity", Mathf.Abs(moveInput.x));
-        animator.SetBool("isGrounded", estaNoChao);
         animator.SetBool("jump", !estaNoChao);
     }
 
@@ -112,6 +158,18 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void  TakeHit()
+    {
+        animator.SetBool("hit", true);
+
+        animator.Play("hitP");
+    }
+
+    public void FinalHit()
+    {
+        animator.SetBool("hit", false);
+    }
+
     private void OnDrawGizmosSelected()
     {
         if (verificadorChao != null)
@@ -119,5 +177,11 @@ public class PlayerMovement : MonoBehaviour
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(verificadorChao.position, raioVerificacao);
         }
+    }
+
+    private void OnDestroy()
+    {
+        InputSystem.onEvent -= CheckHud;
+
     }
 }

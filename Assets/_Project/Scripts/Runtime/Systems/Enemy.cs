@@ -1,12 +1,12 @@
-using UnityEngine;
-using UnityEngine.InputSystem.XR;
+using Cysharp.Threading.Tasks;
 
 public class Enemy : Interactable
 {
     protected override void OnInteract(PlayerMovement player)
     {
-       
 
-        Destroy(gameObject, 0.5f);
+        player.TakeHit();
+
+       // Destroy(gameObject, 0.5f);
     }
 }
