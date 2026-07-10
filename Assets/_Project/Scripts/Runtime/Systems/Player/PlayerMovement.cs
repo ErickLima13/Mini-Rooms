@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
     void OnDisable() => inputActions.Disable();
 
 
-    public void CheckHud(InputEventPtr eventPtr, InputDevice device)
+    public void ShowHud(InputEventPtr eventPtr, InputDevice device)
     {
         _hideSeconds = 0;
         _isHide = false;
@@ -57,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
 
-        InputSystem.onEvent += CheckHud;  
+        InputSystem.onEvent += ShowHud;  
 
         // 1. New Input System captura a intenção de movimento
         inputActions.Player.Move.performed += ctx =>
@@ -181,7 +181,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnDestroy()
     {
-        InputSystem.onEvent -= CheckHud;
+        InputSystem.onEvent -= ShowHud;
 
     }
 }
