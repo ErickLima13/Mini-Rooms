@@ -17,10 +17,11 @@
       "hash": "e5acc106ee196bc5a32fb14cdf2987b0f96d11e0"
     },
     "com.maneuver.screenmanager": {
-      "version": "file:C:/Documentos/Repos/ScreenManager",
+      "version": "https://github.com/Maneuver-Studio/ScreenManager.git",
       "depth": 0,
-      "source": "local",
-      "dependencies": {}
+      "source": "git",
+      "dependencies": {},
+      "hash": "33ade02280422724fef0d9e737d264f1d861bd9e"
     },
     "com.maneuver.soundsystem": {
       "version": "https://github.com/Maneuver-Studio/SoundSystem.git",
