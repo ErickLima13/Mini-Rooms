@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Collider2D))]
 public abstract class Interactable : MonoBehaviour
@@ -7,6 +8,8 @@ public abstract class Interactable : MonoBehaviour
     // Action genérica que passa o Player que colidiu como parâmetro
     // Útil caso o dano ou coletável precise acessar dados do player específico
     protected Action<PlayerMovement> OnPlayerInteract;
+
+    [SerializeField] protected UnityEvent Consequence;
 
     private void Awake()
     {
